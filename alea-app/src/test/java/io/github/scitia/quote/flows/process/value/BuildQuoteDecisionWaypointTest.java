@@ -2,7 +2,7 @@ package io.github.scitia.quote.flows.process.value;
 
 import org.junit.jupiter.api.Test;
 
-import io.github.scitia.app.quote.api.QuoteRequest;
+import io.github.scitia.app.quote.api.request.QuoteRequest;
 import io.github.scitia.app.quote.domain.PricingResult;
 import io.github.scitia.app.quote.domain.QuoteDecision;
 import io.github.scitia.app.quote.domain.RiskAssessment;

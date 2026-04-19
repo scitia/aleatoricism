@@ -4,7 +4,7 @@ import io.github.scitia.alea.core.annotation.WaypointContract;
 import io.github.scitia.alea.core.annotation.WaypointContractType;
 import io.github.scitia.alea.core.api.Waypoint;
 import io.github.scitia.alea.core.execution.ExecutionContext;
-import io.github.scitia.app.quote.api.QuoteRequest;
+import io.github.scitia.app.quote.api.request.QuoteRequest;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

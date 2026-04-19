@@ -1,8 +1,8 @@
 package io.github.scitia.app.quote.controller;
 
 import io.github.scitia.alea.core.engine.FlowEngine;
-import io.github.scitia.app.quote.api.QuoteRequest;
-import io.github.scitia.app.quote.api.QuoteResponse;
+import io.github.scitia.app.quote.api.request.QuoteRequest;
+import io.github.scitia.app.quote.api.response.QuoteResponse;
 import io.github.scitia.app.quote.flows.QuoteFlows;
 import io.github.scitia.app.quote.mapper.QuoteResponseMapper;
 

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.copilot.sdk.json.ToolInvocation;
 import io.github.scitia.alea.core.engine.FlowEngine;
 import io.github.scitia.alea.core.execution.ExecutionOptions;
-import io.github.scitia.app.quote.api.QuoteResponse;
+import io.github.scitia.app.quote.api.response.QuoteResponse;
 import io.github.scitia.config.aleatoric.tools.QuoteEvaluateToolHandler;
 
 import org.junit.jupiter.api.Test;

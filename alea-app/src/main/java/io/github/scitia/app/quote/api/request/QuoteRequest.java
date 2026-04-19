@@ -1,4 +1,4 @@
-package io.github.scitia.app.quote.api;
+package io.github.scitia.app.quote.api.request;
 
 public record QuoteRequest(
         String customerId,

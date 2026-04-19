@@ -1,11 +1,8 @@
-package io.github.scitia.app.quote.domain;
+package io.github.scitia.app.quote.api.response;
 
 import java.math.BigDecimal;
 
-import io.github.scitia.app.quote.api.request.QuoteRequest;
-
-public record PricingResult(
-        QuoteRequest request,
+public record QuotePricingResponse(
         BigDecimal grossAmount,
         BigDecimal discountRate,
         BigDecimal netAmount,

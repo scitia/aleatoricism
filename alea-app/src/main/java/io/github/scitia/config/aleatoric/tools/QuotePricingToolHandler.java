@@ -6,31 +6,32 @@ import com.github.copilot.sdk.json.ToolInvocation;
 import io.github.scitia.alea.core.engine.FlowEngine;
 import io.github.scitia.app.quote.api.request.QuoteRequest;
 import io.github.scitia.app.quote.flows.QuoteFlows;
-import io.github.scitia.app.quote.mapper.QuoteResponseMapper;
+import io.github.scitia.app.quote.mapper.QuotePricingResponseMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 @Component
-public final class QuoteEvaluateToolHandler implements ToolHandler, AgenticBusinessTool {
+public final class QuotePricingToolHandler implements ToolHandler, AgenticBusinessTool {
 
     private final FlowEngine flowEngine;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public QuoteEvaluateToolHandler(FlowEngine flowEngine) {
+    public QuotePricingToolHandler(FlowEngine flowEngine) {
         this.flowEngine = Objects.requireNonNull(flowEngine, "flowEngine cannot be null");
     }
 
     @Override
     public String toolName() {
-        return "quote_evaluate";
+        return "quote_pricing";
     }
 
     @Override
     public String description() {
-        return "Evaluate quote request and return business decision";
+        return "Calculate quote pricing totals without risk decision";
     }
 
     @Override
@@ -44,7 +45,7 @@ public final class QuoteEvaluateToolHandler implements ToolHandler, AgenticBusin
                         "premiumCustomer", Map.of("type", "boolean"),
                         "expedited", Map.of("type", "boolean")
                 ),
-                "required", java.util.List.of("customerId", "units", "unitPrice", "premiumCustomer", "expedited")
+                "required", List.of("customerId", "units", "unitPrice", "premiumCustomer", "expedited")
         );
     }
 
@@ -53,11 +54,11 @@ public final class QuoteEvaluateToolHandler implements ToolHandler, AgenticBusin
         return CompletableFuture.supplyAsync(() -> {
             Map<String, Object> arguments = invocation.getArguments();
             if (arguments == null || arguments.isEmpty()) {
-                throw new IllegalArgumentException("Tool 'quote_evaluate' requires arguments payload");
+                throw new IllegalArgumentException("Tool 'quote_pricing' requires arguments payload");
             }
 
             QuoteRequest request = objectMapper.convertValue(arguments, QuoteRequest.class);
-            return QuoteResponseMapper.INSTANCE.apply(flowEngine.run(QuoteFlows.QUOTE_EVALUATION_FLOW, request));
+            return QuotePricingResponseMapper.INSTANCE.apply(flowEngine.run(QuoteFlows.QUOTE_PRICING_FLOW, request));
         });
     }
 }

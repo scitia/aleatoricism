@@ -4,7 +4,7 @@ import static lombok.AccessLevel.PRIVATE;
 
 import java.util.function.Function;
 
-import io.github.scitia.app.quote.api.QuoteResponse;
+import io.github.scitia.app.quote.api.response.QuoteResponse;
 import io.github.scitia.app.quote.domain.QuoteDecision;
 import lombok.NoArgsConstructor;
 
