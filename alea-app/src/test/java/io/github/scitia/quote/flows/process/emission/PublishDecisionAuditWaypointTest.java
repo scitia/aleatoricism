@@ -1,7 +1,9 @@
 package io.github.scitia.quote.flows.process.emission;
 
-import io.github.scitia.quote.domain.QuoteDecision;
 import org.junit.jupiter.api.Test;
+
+import io.github.scitia.app.quote.domain.QuoteDecision;
+import io.github.scitia.app.quote.flows.process.emission.PublishDecisionAuditWaypoint;
 
 import java.math.BigDecimal;
 

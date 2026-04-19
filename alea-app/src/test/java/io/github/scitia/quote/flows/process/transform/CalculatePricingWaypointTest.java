@@ -1,8 +1,10 @@
 package io.github.scitia.quote.flows.process.transform;
 
-import io.github.scitia.quote.api.QuoteRequest;
-import io.github.scitia.quote.domain.PricingResult;
 import org.junit.jupiter.api.Test;
+
+import io.github.scitia.app.quote.api.QuoteRequest;
+import io.github.scitia.app.quote.domain.PricingResult;
+import io.github.scitia.app.quote.flows.process.transform.CalculatePricingWaypoint;
 
 import java.math.BigDecimal;
 

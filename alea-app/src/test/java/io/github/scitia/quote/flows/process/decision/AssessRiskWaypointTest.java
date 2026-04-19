@@ -1,8 +1,10 @@
 package io.github.scitia.quote.flows.process.decision;
 
-import io.github.scitia.quote.api.QuoteRequest;
-import io.github.scitia.quote.domain.RiskAssessment;
 import org.junit.jupiter.api.Test;
+
+import io.github.scitia.app.quote.api.QuoteRequest;
+import io.github.scitia.app.quote.domain.RiskAssessment;
+import io.github.scitia.app.quote.flows.process.decision.AssessRiskWaypoint;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

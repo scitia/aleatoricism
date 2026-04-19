@@ -1,7 +1,9 @@
 package io.github.scitia.quote.flows.process.transform;
 
-import io.github.scitia.quote.api.QuoteRequest;
 import org.junit.jupiter.api.Test;
+
+import io.github.scitia.app.quote.api.QuoteRequest;
+import io.github.scitia.app.quote.flows.process.transform.NormalizeQuoteInputWaypoint;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

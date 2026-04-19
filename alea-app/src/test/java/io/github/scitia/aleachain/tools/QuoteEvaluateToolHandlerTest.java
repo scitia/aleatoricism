@@ -4,7 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.copilot.sdk.json.ToolInvocation;
 import io.github.scitia.alea.core.engine.FlowEngine;
 import io.github.scitia.alea.core.execution.ExecutionOptions;
-import io.github.scitia.quote.api.QuoteResponse;
+import io.github.scitia.app.quote.api.QuoteResponse;
+import io.github.scitia.config.aleatoric.tools.QuoteEvaluateToolHandler;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
@@ -19,7 +21,7 @@ class QuoteEvaluateToolHandlerTest {
     void shouldEvaluateQuoteByToolInvocation() {
         // given
         try (FlowEngine flowEngine = new FlowEngine(ExecutionOptions.waitForAll())) {
-            QuoteEvaluateToolHandler handler = new QuoteEvaluateToolHandler(flowEngine, new ObjectMapper());
+            QuoteEvaluateToolHandler handler = new QuoteEvaluateToolHandler(flowEngine);
             ToolInvocation invocation = new ToolInvocation()
                     .setToolName("quote_evaluate")
                     .setArguments(new ObjectMapper().valueToTree(Map.of(
