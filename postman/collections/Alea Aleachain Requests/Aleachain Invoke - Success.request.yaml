@@ -1,0 +1,25 @@
+$kind: http-request
+description: Valid payload expected to execute quote evaluation successfully
+url: http://localhost:8080/api/aleachain/invoke
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "intent": "Evaluate customer quote and return decision",
+      "instructions": "Use the most appropriate business tool",
+      "payload": {
+        "customerId": "cust-42",
+        "units": 12,
+        "unitPrice": 110.0,
+        "premiumCustomer": true,
+        "expedited": false
+      },
+      "metadata": {
+        "sessionId": "pm-success-001",
+        "source": "postman"
+      }
+    }
+order: 1000

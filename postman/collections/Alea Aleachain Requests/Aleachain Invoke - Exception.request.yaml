@@ -1,0 +1,25 @@
+$kind: http-request
+description: Invalid payload expected to trigger exception path (type mismatch in payload)
+url: http://localhost:8080/api/aleachain/invoke
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "intent": "Evaluate customer quote and return decision",
+      "instructions": "Use the most appropriate business tool",
+      "payload": {
+        "customerId": "cust-42",
+        "units": 12,
+        "unitPrice": "not-a-number",
+        "premiumCustomer": true,
+        "expedited": false
+      },
+      "metadata": {
+        "sessionId": "pm-error-001",
+        "source": "postman"
+      }
+    }
+order: 2000

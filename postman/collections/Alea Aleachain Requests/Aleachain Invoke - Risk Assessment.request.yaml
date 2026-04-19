@@ -1,0 +1,26 @@
+$kind: http-request
+description: Payload and instructions focused on risk evaluation path (quote_risk_assessment)
+url: http://localhost:8080/api/aleachain/invoke
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: json
+  content: |-
+    {
+      "intent": "Assess customer quote risk and acceptance only",
+      "instructions": "Use risk assessment tool. Do not calculate pricing totals unless strictly required.",
+      "payload": {
+        "customerId": "x-risky",
+        "units": 400,
+        "unitPrice": 100.0,
+        "premiumCustomer": false,
+        "expedited": true
+      },
+      "metadata": {
+        "sessionId": "pm-risk-001",
+        "source": "postman",
+        "expectedTool": "quote_risk_assessment"
+      }
+    }
+order: 3000
