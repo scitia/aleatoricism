@@ -44,6 +44,11 @@
             <version>${alea.lib.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>copilot-sdk-java</artifactId>
+            <version>0.2.2-java.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
