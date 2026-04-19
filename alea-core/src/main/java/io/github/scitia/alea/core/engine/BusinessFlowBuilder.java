@@ -1,6 +1,6 @@
 package io.github.scitia.alea.core.engine;
 
-import io.github.scitia.alea.core.api.OpenOutputPoint;
+import io.github.scitia.alea.core.api.EmissionPoint;
 import io.github.scitia.alea.core.api.Waypoint;
 import io.github.scitia.alea.core.way.Way;
 
@@ -57,7 +57,7 @@ public final class BusinessFlowBuilder {
             return parallel(Way.step(left), Way.step(right));
         }
 
-        public Path<I, O> emit(OpenOutputPoint<O> sideEffect) {
+        public Path<I, O> emit(EmissionPoint<O> sideEffect) {
             return new Path<>(current.emit(sideEffect));
         }
 

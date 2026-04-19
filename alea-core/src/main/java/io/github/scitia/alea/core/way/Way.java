@@ -1,6 +1,6 @@
 package io.github.scitia.alea.core.way;
 
-import io.github.scitia.alea.core.api.OpenOutputPoint;
+import io.github.scitia.alea.core.api.EmissionPoint;
 import io.github.scitia.alea.core.api.Waypoint;
 import io.github.scitia.alea.core.execution.DefaultExecutionContext;
 import io.github.scitia.alea.core.execution.ExecutionContext;
@@ -29,11 +29,11 @@ public sealed interface Way<I, O>
         return new Sequence<>(this, next);
     }
 
-    default Way<I, O> withSideEffect(OpenOutputPoint<I> sideEffect) {
+    default Way<I, O> withSideEffect(EmissionPoint<I> sideEffect) {
         return new SideEffect<>(this, sideEffect);
     }
 
-    default Way<I, O> emit(OpenOutputPoint<O> sideEffect) {
+    default Way<I, O> emit(EmissionPoint<O> sideEffect) {
         return new OutputSideEffect<>(this, sideEffect);
     }
 
@@ -123,7 +123,7 @@ public sealed interface Way<I, O>
         }
     }
 
-    record SideEffect<I, O>(Way<I, O> main, OpenOutputPoint<I> sideEffect) implements Way<I, O> {
+    record SideEffect<I, O>(Way<I, O> main, EmissionPoint<I> sideEffect) implements Way<I, O> {
 
         public SideEffect {
             Objects.requireNonNull(main, "main cannot be null");
@@ -144,7 +144,7 @@ public sealed interface Way<I, O>
         }
     }
 
-    record OutputSideEffect<I, O>(Way<I, O> main, OpenOutputPoint<O> sideEffect) implements Way<I, O> {
+    record OutputSideEffect<I, O>(Way<I, O> main, EmissionPoint<O> sideEffect) implements Way<I, O> {
 
         public OutputSideEffect {
             Objects.requireNonNull(main, "main cannot be null");

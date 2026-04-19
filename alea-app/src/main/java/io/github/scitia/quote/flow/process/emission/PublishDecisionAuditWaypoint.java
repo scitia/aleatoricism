@@ -2,7 +2,7 @@ package io.github.scitia.quote.flow.process.emission;
 
 import io.github.scitia.alea.core.annotation.WaypointContract;
 import io.github.scitia.alea.core.annotation.WaypointContractType;
-import io.github.scitia.alea.core.api.OpenOutputPoint;
+import io.github.scitia.alea.core.api.EmissionPoint;
 import io.github.scitia.alea.core.execution.ExecutionContext;
 import io.github.scitia.quote.domain.QuoteDecision;
 import lombok.AccessLevel;
@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
         contractType = WaypointContractType.OPEN_OUTPUT
 )
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public final class PublishDecisionAuditWaypoint implements OpenOutputPoint<QuoteDecision> {
+public final class PublishDecisionAuditWaypoint implements EmissionPoint<QuoteDecision> {
 
     public static final PublishDecisionAuditWaypoint INSTANCE = new PublishDecisionAuditWaypoint();
 
