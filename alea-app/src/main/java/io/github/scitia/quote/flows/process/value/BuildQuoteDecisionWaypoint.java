@@ -1,4 +1,4 @@
-package io.github.scitia.quote.flow.process.value;
+package io.github.scitia.quote.flows.process.value;
 
 import io.github.scitia.alea.core.annotation.WaypointContract;
 import io.github.scitia.alea.core.annotation.WaypointContractType;

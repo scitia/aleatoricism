@@ -1,9 +1,9 @@
-package io.github.scitia.quote;
+package io.github.scitia.quote.controller;
 
 import io.github.scitia.alea.core.engine.FlowEngine;
 import io.github.scitia.quote.api.QuoteRequest;
 import io.github.scitia.quote.api.QuoteResponse;
-import io.github.scitia.quote.flow.QuoteFlows;
+import io.github.scitia.quote.flows.QuoteFlows;
 import io.github.scitia.quote.mapper.QuoteResponseMapper;
 
 import org.springframework.http.MediaType;

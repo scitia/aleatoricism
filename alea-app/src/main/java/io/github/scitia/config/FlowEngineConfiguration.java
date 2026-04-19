@@ -1,4 +1,4 @@
-package io.github.scitia.quote.config;
+package io.github.scitia.config;
 
 import io.github.scitia.alea.core.engine.FlowEngine;
 import io.github.scitia.alea.core.execution.ExecutionOptions;

@@ -1,4 +1,4 @@
-package io.github.scitia.quote.flow;
+package io.github.scitia.quote.flows;
 
 import static lombok.AccessLevel.PRIVATE;
 
@@ -7,11 +7,11 @@ import io.github.scitia.alea.core.engine.BusinessFlowBuilder;
 import io.github.scitia.alea.core.engine.FlowDefinition;
 import io.github.scitia.quote.api.QuoteRequest;
 import io.github.scitia.quote.domain.QuoteDecision;
-import io.github.scitia.quote.flow.process.decision.AssessRiskWaypoint;
-import io.github.scitia.quote.flow.process.emission.PublishDecisionAuditWaypoint;
-import io.github.scitia.quote.flow.process.transform.CalculatePricingWaypoint;
-import io.github.scitia.quote.flow.process.transform.NormalizeQuoteInputWaypoint;
-import io.github.scitia.quote.flow.process.value.BuildQuoteDecisionWaypoint;
+import io.github.scitia.quote.flows.process.decision.AssessRiskWaypoint;
+import io.github.scitia.quote.flows.process.emission.PublishDecisionAuditWaypoint;
+import io.github.scitia.quote.flows.process.transform.CalculatePricingWaypoint;
+import io.github.scitia.quote.flows.process.transform.NormalizeQuoteInputWaypoint;
+import io.github.scitia.quote.flows.process.value.BuildQuoteDecisionWaypoint;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = PRIVATE)
