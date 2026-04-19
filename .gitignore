@@ -41,3 +41,8 @@ build/
 .mvn/
 mvnw
 mvnw.cmd
+
+### LaTeX Article ###
+docs/article/*
+!docs/article
+!docs/article/main.tex
