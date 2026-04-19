@@ -11,6 +11,10 @@
 		<relativePath/>
 	</parent>
 
+	<properties>
+		<java.version>25</java.version>
+	</properties>
+
     <groupId>io.github.scitia</groupId>
     <artifactId>alea-core</artifactId>
     <version>1.0-SNAPSHOT</version>
