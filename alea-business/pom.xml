@@ -31,7 +31,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.scitia</groupId>
-            <artifactId>alea-core</artifactId>
+            <artifactId>alea-framework</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
