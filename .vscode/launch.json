@@ -9,7 +9,7 @@
             "name": "Launch Alea Application",
             "request": "launch",
             "mainClass": "io.github.scitia.AleaApplication",
-            "projectName": "alea-app",
+            "projectName": "alea-server",
             "vmArgs": [
                 "-Dspring.config.location=D:/Development/ideas/alea/alea/.dev/.config/application.yaml"
             ],
