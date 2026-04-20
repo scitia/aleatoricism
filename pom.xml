@@ -9,8 +9,9 @@
   <url>http://maven.apache.org</url>
 
   <modules>
-    <module>alea-core</module>
-    <module>alea-app</module>
+    <module>alea-framework</module>
+    <module>alea-server</module>
+    <module>alea-business</module>
   </modules>
 
 </project>
