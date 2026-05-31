@@ -43,6 +43,6 @@ mvnw
 mvnw.cmd
 
 ### LaTeX Article ###
-docs/article/*
-!docs/article
-!docs/article/main.tex
+.dev/docs/article/*
+!.dev/docs/article
+!.dev/docs/article/main.tex

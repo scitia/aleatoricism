@@ -1,17 +1,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.github.scitia</groupId>
-  <artifactId>alea</artifactId>
+  <artifactId>aleatoricism-project</artifactId>
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>alea</name>
-  <url>http://maven.apache.org</url>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>aleatoricism-project</name>
 
   <modules>
-    <module>alea-framework</module>
-    <module>alea-server</module>
-    <module>alea-business</module>
+    <module>aleatoricism</module>
+    <module>aleatoricism-chain</module>
+    <module>aleatoricism-flows</module>
+    <module>aleatoricism-spring-boot-autoconfigure</module>
+    <module>aleatoricism-spring-boot-starter</module>
+    <module>aleatoricism-spring-boot-sample-app</module>
   </modules>
+
+  <properties>
+    <spring-boot.version>4.0.5</spring-boot.version>
+  </properties>
 
 </project>
