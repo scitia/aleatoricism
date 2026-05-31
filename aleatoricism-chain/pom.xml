@@ -5,19 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>4.0.5</version>
-        <relativePath/>
+        <groupId>io.github.scitia</groupId>
+        <artifactId>aleatoricism-project</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>io.github.scitia</groupId>
     <artifactId>aleatoricism-chain</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <properties>
-        <java.version>25</java.version>
-    </properties>
+    <name>aleatoricism-chain</name>
 
     <dependencies>
         <dependency>
