@@ -9,7 +9,6 @@
   <name>aleatoricism-project</name>
 
   <modules>
-    <module>aleatoricism</module>
     <module>aleatoricism-chain</module>
     <module>aleatoricism-flows</module>
     <module>aleatoricism-spring-boot-autoconfigure</module>

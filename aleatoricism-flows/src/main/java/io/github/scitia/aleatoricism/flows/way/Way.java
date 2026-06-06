@@ -1,5 +1,6 @@
 package io.github.scitia.aleatoricism.flows.way;
 
+import io.github.scitia.aleatoricism.flows.api.Datapoint;
 import io.github.scitia.aleatoricism.flows.api.EmissionPoint;
 import io.github.scitia.aleatoricism.flows.api.Waypoint;
 import io.github.scitia.aleatoricism.flows.execution.DefaultExecutionContext;
@@ -15,7 +16,7 @@ import java.util.function.Predicate;
  * Algebraic data type that models a business path as a directed graph.
  */
 public sealed interface Way<I, O>
-    permits Way.Step, Way.Sequence, Way.Conditional, Way.Parallel, Way.SideEffect, Way.OutputSideEffect {
+    permits Way.Step, Way.DatapointStep, Way.Sequence, Way.Conditional, Way.Parallel, Way.SideEffect, Way.OutputSideEffect {
 
     O execute(I input, ExecutionContext context);
 
@@ -41,6 +42,10 @@ public sealed interface Way<I, O>
         return new Step<>(waypoint);
     }
 
+    static <I, O> Way<I, O> datapoint(Datapoint<I, O> datapoint) {
+        return new DatapointStep<>(datapoint);
+    }
+
     static <I, O> Way<I, O> when(
             Predicate<I> condition,
             Way<I, O> whenTrue,
@@ -62,6 +67,18 @@ public sealed interface Way<I, O>
         @Override
         public O execute(I input, ExecutionContext context) {
             return waypoint.execute(input, context);
+        }
+    }
+
+    record DatapointStep<I, O>(Datapoint<I, O> datapoint) implements Way<I, O> {
+
+        public DatapointStep {
+            Objects.requireNonNull(datapoint, "datapoint cannot be null");
+        }
+
+        @Override
+        public O execute(I input, ExecutionContext context) {
+            return datapoint.execute(input, context);
         }
     }
 

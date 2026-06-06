@@ -1,5 +1,6 @@
 package io.github.scitia.aleatoricism.flows.engine;
 
+import io.github.scitia.aleatoricism.flows.api.Datapoint;
 import io.github.scitia.aleatoricism.flows.api.EmissionPoint;
 import io.github.scitia.aleatoricism.flows.api.Waypoint;
 import io.github.scitia.aleatoricism.flows.way.Way;
@@ -28,6 +29,10 @@ public final class BusinessFlowBuilder {
             return new Path<>(Way.step(waypoint));
         }
 
+        public <I, O> Path<I, O> start(Datapoint<I, O> datapoint) {
+            return new Path<>(Way.datapoint(datapoint));
+        }
+
         public <I, O> Path<I, O> start(Way<I, O> way) {
             return new Path<>(way);
         }
@@ -49,12 +54,36 @@ public final class BusinessFlowBuilder {
             return then(Way.step(next));
         }
 
+        public <N> Path<I, N> then(Datapoint<O, N> next) {
+            return then(Way.datapoint(next));
+        }
+
         public <L, R> Path<I, Map.Entry<L, R>> parallel(Way<O, L> left, Way<O, R> right) {
             return then(Way.parallel(left, right));
         }
 
         public <L, R> Path<I, Map.Entry<L, R>> parallel(Waypoint<O, L> left, Waypoint<O, R> right) {
             return parallel(Way.step(left), Way.step(right));
+        }
+
+        public <L, R> Path<I, Map.Entry<L, R>> parallel(Datapoint<O, L> left, Datapoint<O, R> right) {
+            return parallel(Way.datapoint(left), Way.datapoint(right));
+        }
+
+        public <L, R> Path<I, Map.Entry<L, R>> parallel(Way<O, L> left, Waypoint<O, R> right) {
+            return parallel(left, Way.step(right));
+        }
+
+        public <L, R> Path<I, Map.Entry<L, R>> parallel(Waypoint<O, L> left, Way<O, R> right) {
+            return parallel(Way.step(left), right);
+        }
+
+        public <L, R> Path<I, Map.Entry<L, R>> parallel(Way<O, L> left, Datapoint<O, R> right) {
+            return parallel(left, Way.datapoint(right));
+        }
+
+        public <L, R> Path<I, Map.Entry<L, R>> parallel(Datapoint<O, L> left, Way<O, R> right) {
+            return parallel(Way.datapoint(left), right);
         }
 
         public Path<I, O> emit(EmissionPoint<O> sideEffect) {

@@ -2,9 +2,9 @@ package io.github.scitia.config.aleatoricism.handler;
 
 import io.github.scitia.aleatoricism.chain.HttpRequestContext;
 import io.github.scitia.aleatoricism.chain.HttpRequestHandler;
-import io.github.scitia.config.aleatoricism.core.AleatoricCopilotGateway;
 import io.github.scitia.config.aleatoricism.command.AleatoricCommandRequest;
 import io.github.scitia.config.aleatoricism.command.AleatoricCommandResponse;
+import io.github.scitia.config.aleatoricism.core.AleatoricCopilotGateway;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +15,7 @@ import java.util.UUID;
 
 /**
  * Implementation of HttpRequestHandler for Aleatoric framework.
- *
+*  <br>
  * Converts HTTP requests to AleatoricCommandRequest and delegates to the AI model
  * via AleatoricCopilotGateway.
  */

@@ -1,10 +1,9 @@
 package io.github.scitia.config.aleatoricism.controller;
 
-import io.github.scitia.config.aleatoricism.core.AleatoricCopilotGateway;
 import io.github.scitia.config.aleatoricism.command.AleatoricCommandRequest;
 import io.github.scitia.config.aleatoricism.command.AleatoricCommandResponse;
+import io.github.scitia.config.aleatoricism.core.AleatoricCopilotGateway;
 import jakarta.validation.Valid;
-
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
