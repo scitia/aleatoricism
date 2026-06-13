@@ -1,9 +1,0 @@
-services:
-  database:
-    image: 'postgres:15.2'
-    ports:
-      - '5432:5432'
-    environment:
-      - 'POSTGRES_USER=appuser'
-      - 'POSTGRES_DB=aleatoricismdb'
-      - 'POSTGRES_PASSWORD=topsecret'

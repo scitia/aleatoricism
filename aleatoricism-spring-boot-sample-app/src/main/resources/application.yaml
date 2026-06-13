@@ -6,6 +6,16 @@ server:
 spring:
   application:
     name: aleatoricism-app
+  datasource:
+    url: jdbc:postgresql://localhost:5432/aleatoricismdb
+    username: appuser
+    password: topsecret
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    open-in-view: false
+    generate-ddl: true
 
 aleatoricism:
   auto-router:

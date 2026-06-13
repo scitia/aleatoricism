@@ -79,7 +79,6 @@ public class AleatoricCopilotGateway {
 
             var done = new CompletableFuture<Void>();
             session.on(SessionIdleEvent.class, _ -> done.complete(null));
-
             session.send(new MessageOptions().setPrompt(buildAgentPrompt(request))).get();
             done.get();
         } catch (InterruptedException exception) {
@@ -123,25 +122,29 @@ public class AleatoricCopilotGateway {
             metadataJson = String.valueOf(request.metadata());
         }
 
+
         return """
-            You are an execution planner for business tools.
-            Choose tool(s) from the catalog and invoke them with proper JSON arguments.
-            You may call multiple tools if needed, but only if each call adds business value.
-            If no tool can safely satisfy intent, fail with a clear exception.
-
-            Tool catalog:
-            %s
-
-            Intent: %s
-            Instructions: %s
-            Payload: %s
-            Metadata: %s
-            """.formatted(
+                You are an AI agent that MUST use one of the available tools to handle the request.
+                
+                AVAILABLE TOOLS:
+                %s
+                
+                USER INTENT:
+                %s
+                
+                INPUT DATA:
+                %s
+                
+                IMPORTANT:
+                - You MUST call a tool
+                - Do NOT answer directly
+                - Select the most appropriate tool
+                - Return ONLY tool execution
+                
+                """.formatted(
                 toolsSummary,
                 safeText(request.intent()),
-                safeText(request.instructions()),
-                payloadJson,
-                metadataJson
+                payloadJson
         );
     }
 

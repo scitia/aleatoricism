@@ -10,11 +10,17 @@ This sample app includes domain flows for quotes and agile scrum workflows. The 
 
 ```json
 {
-  "name": "Sprint 12",
-  "goal": "Ship planning improvements",
-  "startDate": "2026-06-01",
-  "endDate": "2026-06-14",
-  "capacity": 30,
-  "team": "alpha"
+  "name": "Name",
+  "goal": "Goal",
+  "issues": [
+    {
+      "name": "Issue 1",
+      "description": "Description 1",
+      "reporter": "Reporter 1",
+      "estimation": 5,
+      "acceptanceCriteria": ["Criterion 1"]
+    }
+  ]
 }
+```
 
