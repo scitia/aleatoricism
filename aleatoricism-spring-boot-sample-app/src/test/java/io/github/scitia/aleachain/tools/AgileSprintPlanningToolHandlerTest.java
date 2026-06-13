@@ -2,7 +2,7 @@ package io.github.scitia.aleachain.tools;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.copilot.sdk.json.ToolInvocation;
-import io.github.scitia.app.sprint.api.SprintDto;
+import io.github.scitia.app.sprint.domain.sprint.SprintDto;
 import io.github.scitia.config.aleatoricism.tools.app.agile.AgileSprintPlanningToolHandler;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

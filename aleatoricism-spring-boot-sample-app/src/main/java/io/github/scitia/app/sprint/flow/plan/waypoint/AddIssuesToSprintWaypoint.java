@@ -1,15 +1,15 @@
-package io.github.scitia.app.sprint.flow.plan;
+package io.github.scitia.app.sprint.flow.plan.waypoint;
 
 import io.github.scitia.aleatoricism.flows.api.Waypoint;
 import io.github.scitia.aleatoricism.flows.execution.ExecutionContext;
-import io.github.scitia.app.sprint.domain.Issue;
-import io.github.scitia.app.sprint.domain.Sprint;
-import io.github.scitia.app.sprint.flow.SprintFlows;
+import io.github.scitia.app.sprint.domain.issue.Issue;
+import io.github.scitia.app.sprint.domain.sprint.Sprint;
+import io.github.scitia.app.sprint.flow.plan.store.SprintPlanningStore;
 
-public class AddIssuesToSprintWaypoint implements Waypoint<Sprint, Sprint, SprintFlows.ExampleStore> {
+public class AddIssuesToSprintWaypoint implements Waypoint<Sprint, Sprint, SprintPlanningStore> {
 
     @Override
-    public Sprint handle(Sprint sprint, ExecutionContext<SprintFlows.ExampleStore> context) {
+    public Sprint handle(Sprint sprint, ExecutionContext<SprintPlanningStore> context) {
         context.getStore().getSprintPlanningRequest().issues().forEach(issueDto -> {
             Issue issue = new Issue();
             issue.setName(issueDto.name());

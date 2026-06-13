@@ -1,8 +1,7 @@
-package io.github.scitia.app.sprint.mapper;
+package io.github.scitia.app.sprint.domain.sprint;
 
-import io.github.scitia.app.sprint.api.IssueDto;
-import io.github.scitia.app.sprint.api.SprintDto;
-import io.github.scitia.app.sprint.domain.Sprint;
+import io.github.scitia.app.sprint.domain.issue.IssueDto;
+import io.github.scitia.app.sprint.domain.issue.IssueMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

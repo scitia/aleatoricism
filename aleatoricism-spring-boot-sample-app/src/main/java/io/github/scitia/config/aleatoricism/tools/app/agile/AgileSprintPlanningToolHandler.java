@@ -4,15 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.copilot.sdk.json.ToolHandler;
 import com.github.copilot.sdk.json.ToolInvocation;
 import io.github.scitia.aleatoricism.flows.engine.FlowEngine;
-import io.github.scitia.app.sprint.api.SprintPlanningRequest;
-import io.github.scitia.app.sprint.domain.Sprint;
+import io.github.scitia.app.sprint.domain.sprint.Sprint;
+import io.github.scitia.app.sprint.domain.sprint.SprintMapper;
 import io.github.scitia.app.sprint.flow.SprintFlows;
-import io.github.scitia.app.sprint.mapper.SprintMapper;
+import io.github.scitia.app.sprint.flow.api.SprintPlanningRequest;
 import io.github.scitia.config.aleatoricism.tools.AgenticBusinessTool;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
@@ -55,8 +54,7 @@ public final class AgileSprintPlanningToolHandler implements ToolHandler, Agenti
 
                                         )
                                 )
-                        ),
-                        "required", List.of("name", "goal")
+                        )
                 )
         );
     }

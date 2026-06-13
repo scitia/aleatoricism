@@ -79,8 +79,7 @@ public class AleatoricCopilotGateway {
 
             var done = new CompletableFuture<Void>();
             session.on(SessionIdleEvent.class, _ -> done.complete(null));
-
-            session.send(new MessageOptions().setPrompt(buildAgentPrompt(request))).get();
+            session.sendAndWait(new MessageOptions().setPrompt(buildAgentPrompt(request))).get();
             done.get();
         } catch (InterruptedException exception) {
             Thread.currentThread().interrupt();
@@ -122,6 +121,7 @@ public class AleatoricCopilotGateway {
             payloadJson = String.valueOf(request.payload());
             metadataJson = String.valueOf(request.metadata());
         }
+
 
         return """
             You are an execution planner for business tools.

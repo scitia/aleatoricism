@@ -1,5 +1,6 @@
-package io.github.scitia.app.sprint.domain;
+package io.github.scitia.app.sprint.domain.issue;
 
+import io.github.scitia.app.sprint.domain.sprint.Sprint;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

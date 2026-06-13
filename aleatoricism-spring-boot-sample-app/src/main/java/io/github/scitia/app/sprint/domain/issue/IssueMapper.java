@@ -1,7 +1,5 @@
-package io.github.scitia.app.sprint.mapper;
+package io.github.scitia.app.sprint.domain.issue;
 
-import io.github.scitia.app.sprint.api.IssueDto;
-import io.github.scitia.app.sprint.domain.Issue;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -1,5 +1,6 @@
-package io.github.scitia.app.sprint.domain;
+package io.github.scitia.app.sprint.domain.sprint;
 
+import io.github.scitia.app.sprint.domain.issue.Issue;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

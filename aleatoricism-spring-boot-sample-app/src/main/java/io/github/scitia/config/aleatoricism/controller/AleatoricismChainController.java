@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
-@RequestMapping(path = "/api/aleachain", produces = MediaType.APPLICATION_JSON_VALUE)
+@RequestMapping(path = "/api/chain", produces = MediaType.APPLICATION_JSON_VALUE)
 public class AleatoricismChainController {
 
     private final AleatoricCopilotGateway gateway;

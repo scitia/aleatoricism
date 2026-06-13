@@ -47,21 +47,21 @@ public class MarkdownInstructionProvider implements InstructionProvider {
     private String getDefaultInstructions() {
         return """
                 # Aleatoric HTTP Router Instructions
-                
-                This is the default instruction set. 
-                To customize, create 'aleatoric-instructions.md' in your project's resources folder.
-                
+               \s
+                This is the default instruction set.\s
+                To customize, create 'aleatoricism.md' in your project's resources folder.
+               \s
                 ## HTTP Method Handling
-                
+               \s
                 The router will automatically handle:
                 - GET: Retrieve resources
                 - POST: Create resources
                 - PUT: Replace resources
                 - PATCH: Update resources
                 - DELETE: Remove resources
-                
+               \s
                 Each request will be processed by the AI model which will decide the appropriate business operation.
-                """;
+               \s""";
     }
 
 }
