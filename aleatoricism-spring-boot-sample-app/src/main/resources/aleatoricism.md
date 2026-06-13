@@ -1,79 +1,104 @@
-# Aleatoric HTTP Router Instructions
+# Scrum Processes - Aleatoricism Flow Router
 
 ## Overview
 
-This file defines the instructions for handling HTTP requests in the Aleatoric framework.
-The AI model (running via Copilot SDK) will use these instructions to determine which business operation to execute
-based on the HTTP method and path of the incoming request.
+This application implements three core Scrum processes as agentic workflows. The HTTP router will analyze requests
+and route them to the appropriate Scrum process based on the intent and path.
 
-## HTTP Methods and Intent
+## Scrum Processes and Endpoints
 
-### GET Request
-- **Purpose**: Retrieve a resource or data
-- **Typical Path Pattern**: `/resource/{id}` or `/resource/list`
-- **Expected Behavior**: Query the business logic to fetch data, return the result
-- **Tools to Consider**: Query tools, read operations
+### 1. Sprint Retrospective
+- **Path**: `/scrum/retrospective` or `/scrum/sprint/{sprintId}/retrospective`
+- **Method**: POST
+- **Purpose**: Conduct a sprint retrospective - collect team feedback on what went well, what could improve, and generate action items
+- **Tool**: `scrum_sprint_retrospective`
+- **Practical aspects**:
+  - Gathers team feedback on sprint execution
+  - Identifies improvements for next sprint
+  - Generates actionable items based on challenges
+  - Estimates retrospective duration based on participant count
+  - Emits audit trail for process tracking
 
-### POST Request
-- **Purpose**: Create a new resource
-- **Typical Path Pattern**: `/resource` or `/resource/create`
-- **Expected Behavior**: Extract data from request body, pass through business logic for creation
-- **Tools to Consider**: Creation tools, initialization tools
+### 2. Sprint Planning
+- **Path**: `/scrum/planning` or `/scrum/sprint/{sprintId}/planning`
+- **Method**: POST
+- **Purpose**: Plan a sprint by selecting backlog items, estimating workload, and validating against team capacity
+- **Tool**: `scrum_sprint_planning`
+- **Practical aspects**:
+  - Validates story points against team capacity
+  - Detects capacity overflow situations
+  - Commits specific backlog items to sprint
+  - Ensures realistic sprint goals
+  - Emits audit trail for commitment tracking
 
-### PUT Request
-- **Purpose**: Replace/Update an entire resource
-- **Typical Path Pattern**: `/resource/{id}` 
-- **Expected Behavior**: Extract data from request body, perform full update through business logic
-- **Tools to Consider**: Update tools, replacement tools
+### 3. Sprint Kickoff (Rozpoczynanie Sprintu)
+- **Path**: `/scrum/kickoff` or `/scrum/sprint/{sprintId}/kickoff`
+- **Method**: POST
+- **Purpose**: Formally begin the sprint with team alignment on goals and confirm committed work
+- **Tool**: `scrum_sprint_kickoff`
+- **Practical aspects**:
+  - Confirms team availability and participation
+  - Aligns team on sprint goal and objectives
+  - Reviews committed backlog items
+  - Schedules sprint activities (daily standup, etc.)
+  - Sets expectations for sprint duration
+  - Emits audit trail for sprint initiation
 
-### PATCH Request
-- **Purpose**: Partially update a resource
-- **Typical Path Pattern**: `/resource/{id}` or `/resource/{id}/partial`
-- **Expected Behavior**: Extract specific fields from request body, perform partial update
-- **Tools to Consider**: Partial update tools, patch operations
+## Request Format
 
-### DELETE Request
-- **Purpose**: Remove/Delete a resource
-- **Typical Path Pattern**: `/resource/{id}` or `/resource/{id}/delete`
-- **Expected Behavior**: Identify the resource and remove it through business logic
-- **Tools to Consider**: Deletion tools, cleanup operations
+All Scrum process requests should:
+- Use **POST** method
+- Include a **JSON body** with process-specific parameters
+- Follow the input schema defined by each tool handler
 
-## Request Context
+### Example Request Paths:
+```
+POST /scrum/retrospective
+POST /scrum/planning
+POST /scrum/kickoff
+POST /scrum/sprint/550e8400-e29b-41d4-a716-446655440000/retrospective
+POST /scrum/sprint/550e8400-e29b-41d4-a716-446655440000/planning
+POST /scrum/sprint/550e8400-e29b-41d4-a716-446655440000/kickoff
+```
 
-Each HTTP request will contain:
-- **method**: The HTTP method (GET, POST, PUT, PATCH, DELETE)
-- **path**: The request URI path
-- **queryParams**: URL query parameters (for GET, DELETE)
-- **headers**: HTTP headers
-- **body**: Request body (for POST, PUT, PATCH)
+## Response Format
 
-## Business Logic Integration
-
-The AI model should:
-1. Analyze the HTTP method and path
-2. Determine which business operation (tool) is most appropriate
-3. Extract necessary parameters from the request
-4. Execute the tool with proper arguments
-5. Return the result as response
+All endpoints return a JSON response with:
+- ID of the created/processed entity
+- Status of the operation
+- Relevant metadata for the Scrum process
+- Audit trail information
 
 ## Tool Availability
 
-The following business tools are available (see tool configuration in your project):
-- Quote processing tools
-- Risk assessment tools
-- Pricing calculation tools
-- Decision making tools
-- Any custom business tools registered in the application
+Available Scrum tools:
+- `scrum_sprint_retrospective` - Conduct retrospective with feedback collection
+- `scrum_sprint_planning` - Plan sprint backlog and validate capacity
+- `scrum_sprint_kickoff` - Start sprint with team alignment
+
+Legacy tools (if applicable):
+- `agile_create_sprint` - Create sprint summary
+- `agile_plan_sprint` - Plan backlog items with capacity check
+- `agile_add_backlog_item` - Register backlog item
 
 ## Error Handling
 
 If the AI model cannot safely execute a request:
-- Return a clear error message
+- Return a clear error message describing the issue
 - Do not attempt to execute if the intent is unclear
-- Always validate that the tool exists and is called with proper arguments
+- Always validate that required parameters are present
+- Provide helpful feedback on missing or invalid data
+
+## Workflow Stages
+
+Each Scrum process follows this pattern:
+1. **Normalize** - Sanitize input, apply defaults, handle missing values
+2. **Build** - Create domain object with calculated values
+3. **Audit** - Emit event for process tracking and monitoring
 
 ---
 
-**Note**: Modify this file to customize how your application handles different HTTP methods and paths.
-Restart the application for changes to take effect.
+**Note**: Modify this file to customize Scrum process handling. Restart the application for changes to take effect.
+
+For benchmarking and performance testing, all three processes are instrumented with audit trails.
 

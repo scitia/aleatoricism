@@ -16,6 +16,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Legacy tool handler for sprint capacity planning.
+ * Superseded by ScrumSprintPlanningToolHandler for full Scrum sprint planning.
+ * This handler remains for backward compatibility with existing flows.
+ */
 @Component
 public final class AgilePlanSprintToolHandler implements ToolHandler, AgenticBusinessTool {
 
@@ -33,7 +38,7 @@ public final class AgilePlanSprintToolHandler implements ToolHandler, AgenticBus
 
     @Override
     public String description() {
-        return "Plan sprint backlog and validate capacity";
+        return "[Legacy] Plan sprint backlog and validate capacity. Use scrum_sprint_planning for formal Scrum planning process.";
     }
 
     @Override

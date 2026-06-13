@@ -16,6 +16,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Legacy tool handler for creating sprint baseline.
+ * Superseded by ScrumSprintKickoffToolHandler for full sprint initialization.
+ * This handler remains for backward compatibility with existing flows.
+ */
 @Component
 public final class AgileCreateSprintToolHandler implements ToolHandler, AgenticBusinessTool {
 
@@ -33,7 +38,7 @@ public final class AgileCreateSprintToolHandler implements ToolHandler, AgenticB
 
     @Override
     public String description() {
-        return "Create a sprint with schedule and capacity";
+        return "[Legacy] Create a sprint baseline with schedule and capacity. Use scrum_sprint_kickoff for full sprint initialization.";
     }
 
     @Override

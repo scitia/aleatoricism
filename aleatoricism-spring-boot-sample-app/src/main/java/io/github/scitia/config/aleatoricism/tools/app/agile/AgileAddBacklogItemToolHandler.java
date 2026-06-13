@@ -16,6 +16,11 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
+/**
+ * Legacy tool handler for adding backlog items.
+ * Part of the original Agile sample implementation.
+ * Backlog items are now managed as part of sprint planning processes.
+ */
 @Component
 public final class AgileAddBacklogItemToolHandler implements ToolHandler, AgenticBusinessTool {
 
@@ -33,7 +38,7 @@ public final class AgileAddBacklogItemToolHandler implements ToolHandler, Agenti
 
     @Override
     public String description() {
-        return "Add a backlog item with initial metadata";
+        return "[Legacy] Add a backlog item with initial metadata. Use sprint planning tools for Scrum workflows.";
     }
 
     @Override
