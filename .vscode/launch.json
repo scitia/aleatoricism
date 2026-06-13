@@ -12,13 +12,23 @@
             "projectName": "alea-server",
             "vmArgs": [
                 "-Dspring.config.location=D:/Development/ideas/alea/alea/.dev/.config/application.yaml"
-            ],
+            ]
         },
         {
             "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-AleatoricismApplication<aleatoricism-spring-boot-sample-app>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "io.github.scitia.AleatoricismApplication",
+            "projectName": "aleatoricism-spring-boot-sample-app",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
