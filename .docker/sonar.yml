@@ -11,9 +11,9 @@ services:
       SONAR_JDBC_USERNAME: sonar
       SONAR_JDBC_PASSWORD: sonar
     volumes:
-      - d:/Development/ideas/aleatoricism-project/.docker/data/sonar_data:/opt/sonarqube/data
-      - d:/Development/ideas/aleatoricism-project/.docker/data/sonar_extensions:/opt/sonarqube/extensions
-      - d:/Development/ideas/aleatoricism-project/.docker/data/sonar_logs:/opt/sonarqube/logs
+      - .docker/data/sonar_data:/opt/sonarqube/data
+      - .docker/data/sonar_extensions:/opt/sonarqube/extensions
+      - .docker/data/sonar_logs:/opt/sonarqube/logs
 
   db:
     image: postgres:15
