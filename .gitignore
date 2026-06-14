@@ -31,7 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/*
-!vscode/
 !**.vscode/launch.json
 
 ### Dev Configuration ###
@@ -49,3 +48,5 @@ mvnw.cmd
 
 ### Docker data
 .docker/data/
+
+/.vscode/launch.json

@@ -1,2 +1,3 @@
 # Exclude local development assets from Copilot context
 .dev/
+.docker/
